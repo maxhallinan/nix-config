@@ -3,6 +3,7 @@
 {
   imports = [
     ./git.nix
+    ./neovim.nix
     ./ssh.nix
   ];
 
@@ -27,6 +28,4 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
-  programs.neovim.enable = true;
 }
