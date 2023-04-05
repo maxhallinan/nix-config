@@ -12,9 +12,7 @@
   home.username = "maxhallinan";
   home.homeDirectory = "/Users/maxhallinan";
 
-  home.packages = [
-    pkgs.tmux
-  ];
+  home.packages = with pkgs; [fzf tmux];
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage

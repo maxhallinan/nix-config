@@ -1,4 +1,4 @@
-{pkgs}:
+{ pkgs, ... }:
 
 {
   programs.neovim = {
@@ -26,6 +26,7 @@
       set encoding=utf-8
 
       " Syntax highlighting
+      colorscheme solarized
       filetype plugin on
       syntax enable
       set t_Co=256
@@ -59,6 +60,9 @@
       set iskeyword-=_
       set wildmenu
       set wildmode=longest,list
+
+      " Automatically remove trailing whitespace
+      autocmd BufWritePre * %s/\s\+$//e
 
       " Visual decorations
       " Show status line
@@ -145,6 +149,14 @@
 
       " highlight jsx in .js files
       let g:jsx_ext_required = 0
+
+      " fzf fuzzy search
+      " https://github.com/junegunn/fzf#as-vim-plugin
+      " set rtp+=~/.fzf
+      set rtp+=/usr/local/opt/fzf
+
+      " Toggle fzf
+      map <Leader>n :Files<CR>
     '';
   };
 }
