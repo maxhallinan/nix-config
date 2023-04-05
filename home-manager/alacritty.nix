@@ -1,5 +1,8 @@
 { ... }:
 
+let
+  default-font = "Menlo";
+in
 {
   programs.alacritty = {
     enable = true;
@@ -33,6 +36,11 @@
 			};
       cursor.style = "Block";
       cursor.unfocused_hollow = true;
+			font.normal = {
+				family = default-font;
+				style = "Regular";
+			};
+      font.size = 14.0;
       scrolling.history = 10000;
       url.launcher.program = "chrome";
     };
