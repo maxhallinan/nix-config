@@ -30,4 +30,15 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  # home.activation = {
+  #   postgres = config.lib.dag.entryAfter [ "writeBoundary" ] ''
+  #     if [ ! -d "/usr/local/var" ]; then
+  #       sudo mkdir $VERBOSE_ARG "/usr/local/var"
+  #     fi
+  #     if [ ! -d "/usr/local/var/postgres" ]; then
+  #       sudo mkdir $VERBOSE_ARG "/usr/local/var/postgres"
+  #     fi
+  #   '';
+  # };
 }

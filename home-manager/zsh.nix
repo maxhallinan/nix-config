@@ -3,10 +3,11 @@
 {
   programs.zsh = {
     enable = true;
-
-   oh-my-zsh = {
-   		enable = true;
-
+    initExtra = ''
+      eval "$(/opt/homebrew/bin/brew shellenv)"
+    '';
+    oh-my-zsh = {
+      enable = true;
       plugins = ["git" "tmux" "z"];
     };
   };

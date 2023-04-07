@@ -22,7 +22,7 @@
     darwinConfigurations = {
       "maxhallinan-m1" = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
-        modules = [./configuration.nix];
+        modules = [./darwin/configuration.nix];
         specialArgs = inputs;
       };
     };
