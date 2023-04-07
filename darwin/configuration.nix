@@ -1,6 +1,20 @@
 { config, pkgs, home-manager, ... }:
 
 {
+  nix = {
+    extraOptions = ''
+      extra-experimental-features = nix-command flakes repl-flake
+      extra-substituters = https://cache.mercury.com
+      extra-trusted-public-keys = cache.mercury.com:yhfFlgvqtv0cAxzflJ0aZW3mbulx4+5EOZm6k3oML+I=
+      extra-trusted-substituters = https://cache.mercury.com
+      accept-flake-config = true
+      warn-dirty = false
+    '';
+    settings = {
+      max-jobs = "auto";
+    };
+  };
+
   imports = [
     home-manager.darwinModule
     # ./postgresql.nix
