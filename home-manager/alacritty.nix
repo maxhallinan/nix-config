@@ -43,6 +43,10 @@ in
       font.size = 14.0;
       scrolling.history = 10000;
       url.launcher.program = "chrome";
+      window = {
+        # https://github.com/alacritty/alacritty/issues/93
+        option_as_alt = "Both";
+      };
     };
   };
 }
