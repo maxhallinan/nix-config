@@ -3,6 +3,7 @@
 {
   imports = [
     ./alacritty.nix
+    ./autojump.nix
     ./direnv.nix
     ./git.nix
     ./neovim.nix
