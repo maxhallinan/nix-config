@@ -10,5 +10,8 @@
       enable = true;
       plugins = ["git" "tmux" "z"];
     };
+    shellAliases = {
+      mwt = "make generate-web-types pathToFrontendRepo=/Users/maxhallinan/Mercury/mercury-web-frontend";
+    };
   };
 }
