@@ -40,6 +40,8 @@
       bind l select-pane -R
 
       set -g @colors-solarized 'dark'
+
+      set-window-option -g mode-keys vi
     '';
   };
 }
