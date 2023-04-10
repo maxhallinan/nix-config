@@ -18,7 +18,7 @@
   imports = [
     home-manager.darwinModule
     # ./postgresql.nix
-    ./homebrew.nix
+    # ./homebrew.nix
   ];
 
   # List packages installed in system profile. To search by name, run:
