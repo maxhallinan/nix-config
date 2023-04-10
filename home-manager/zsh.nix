@@ -12,6 +12,7 @@
     };
     sessionVariables = {
       EDITOR = "nvim";
+      GREP_OPTIONS = "--ignore-case --line-number --recursive";
     };
     shellAliases = {
       mwt = "make generate-web-types pathToFrontendRepo=/Users/maxhallinan/Mercury/mercury-web-frontend";
