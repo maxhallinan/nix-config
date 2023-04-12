@@ -161,6 +161,13 @@
 
       " Toggle fzf
       map <Leader>n :Files<CR>
+
+      " https://vi.stackexchange.com/a/26775
+      " https://stackoverflow.com/questions/64180454/how-to-change-coc-nvim-floating-window-colors/64293783#64293783
+      " https://github.com/neoclide/coc.nvim/discussions/3351
+      " :Help coc-completion
+      highlight CocFloating ctermfg=Black ctermbg=White
+      highlight CocMenuSel ctermfg=Black ctermbg=Blue
     '';
     coc = {
       enable = true;
