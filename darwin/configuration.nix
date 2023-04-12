@@ -26,6 +26,7 @@
   environment.systemPackages =
     [ pkgs.vim
       pkgs.alacritty
+      pkgs.ripgrep
     ];
 
   # Use a custom configuration.nix location.
