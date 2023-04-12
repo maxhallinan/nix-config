@@ -5,6 +5,7 @@
     enable = true;
     viAlias = true;
     vimAlias = true;
+    withNodeJs = true;
     plugins = with pkgs.vimPlugins; [
       bclose-vim
       editorconfig-nvim
@@ -20,6 +21,9 @@
       vim-gitgutter
       vim-javascript
       vim-json
+      coc-nvim
+      coc-tslint
+      coc-tsserver
     ];
     extraConfig = ''
       set nocompatible
@@ -158,5 +162,10 @@
       " Toggle fzf
       map <Leader>n :Files<CR>
     '';
+    coc = {
+      settings = {
+        "tslint.autoFixOnSave" = true;
+      };
+    };
   };
 }
