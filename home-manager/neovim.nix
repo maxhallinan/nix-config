@@ -21,8 +21,8 @@
       vim-gitgutter
       vim-javascript
       vim-json
-      coc-nvim
-      coc-tslint
+      # coc-nvim
+      coc-eslint
       coc-tsserver
     ];
     extraConfig = ''
@@ -163,8 +163,9 @@
       map <Leader>n :Files<CR>
     '';
     coc = {
+      enable = true;
       settings = {
-        "tslint.autoFixOnSave" = true;
+        "eslint.autoFixOnSave" = true;
       };
     };
   };
