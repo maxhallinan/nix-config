@@ -21,7 +21,7 @@
       vim-gitgutter
       vim-javascript
       vim-json
-      # coc-nvim
+      coc-nvim
       coc-eslint
       coc-tsserver
     ];
@@ -168,6 +168,12 @@
       " :Help coc-completion
       highlight CocFloating ctermfg=Black ctermbg=White
       highlight CocMenuSel ctermfg=Black ctermbg=Blue
+
+      " So that coc stuff takes effect faster.
+      set updatetime=300
+
+      nmap <silent> gd <Plug>(coc-definition)
+      nmap <silent> gy <Plug>(coc-type-definition)
     '';
     coc = {
       enable = true;
