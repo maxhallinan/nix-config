@@ -3,6 +3,7 @@
     enable = true;
     onActivation.upgrade = true;
     casks = [
+      "figma"
       "iterm2"
       "postman"
     ];
