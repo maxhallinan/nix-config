@@ -173,7 +173,9 @@
       set updatetime=300
 
       nmap <silent> gd <Plug>(coc-definition)
+      nmap <silent> gi <Plug>(coc-implementation)
       nmap <silent> gy <Plug>(coc-type-definition)
+      nmap <silent> gr <Plug>(coc-references)
     '';
     coc = {
       enable = true;
