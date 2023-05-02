@@ -24,6 +24,7 @@
       coc-nvim
       coc-eslint
       coc-tsserver
+      vim-nix
     ];
     extraConfig = ''
       set nocompatible
