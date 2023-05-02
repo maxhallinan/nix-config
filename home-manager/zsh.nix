@@ -11,6 +11,12 @@
         dropdb $1
         createdb $1
       }
+
+      # Get rid of all unstaged changes
+      git-sweep-stage() {
+        git stash --keep-index
+        git clean --force
+      }
     '';
     oh-my-zsh = {
       enable = true;
@@ -26,6 +32,7 @@
       MWB_BE = "$HOME/Mercury/mercury-web-backend";
     };
     shellAliases = {
+      gsst = "git-sweep-stage";
       mwt = "make generate-web-types pathToFrontendRepo=/Users/maxhallinan/Mercury/mercury-web-frontend";
       pgc = "createdb";
       pgd = "dropdb";
