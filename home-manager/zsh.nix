@@ -5,6 +5,12 @@
     enable = true;
     initExtra = ''
       eval "$(/opt/homebrew/bin/brew shellenv)"
+      export PATH=$N_PREFIX/bin:$PATH
+
+      recreatedb(){
+        dropdb $1
+        createdb $1
+      }
     '';
     oh-my-zsh = {
       enable = true;
