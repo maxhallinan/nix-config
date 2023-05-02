@@ -27,9 +27,10 @@
     };
     shellAliases = {
       mwt = "make generate-web-types pathToFrontendRepo=/Users/maxhallinan/Mercury/mercury-web-frontend";
-      pgi = "psql -d";
       pgc = "createdb";
       pgd = "dropdb";
+      pgi = "psql -d";
+      pgmwb = "psql -d $MWB_DB";
       pgr = "recreatedb";
     };
   };
