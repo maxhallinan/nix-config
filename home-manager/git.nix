@@ -5,6 +5,11 @@
     enable = true;
     userName = "Max Hallinan";
     userEmail = "maxhallinan@gmail.com";
+    extraConfig = {
+      init = {
+        "defaultBranch" = "main";
+      };
+    };
     ignores = [
       # Based on https://gist.github.com/octocat/9257657
 
