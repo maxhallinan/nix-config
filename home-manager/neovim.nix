@@ -8,6 +8,10 @@
     withNodeJs = true;
     plugins = with pkgs.vimPlugins; [
       bclose-vim
+      coc-eslint
+      coc-nvim
+      coc-snippets
+      coc-tsserver
       editorconfig-nvim
       elm-vim
       fzf-vim
@@ -21,9 +25,6 @@
       vim-gitgutter
       vim-javascript
       vim-json
-      coc-nvim
-      coc-eslint
-      coc-tsserver
       vim-nix
     ];
     extraConfig = ''
@@ -177,11 +178,20 @@
       nmap <silent> gi <Plug>(coc-implementation)
       nmap <silent> gy <Plug>(coc-type-definition)
       nmap <silent> gr <Plug>(coc-references)
+
+      imap <C-l> <Plug>(coc-snippets-expand)
+      " Use <C-j> for select text for visual placeholder of snippet.
+      vmap <C-j> <Plug>(coc-snippets-select)
+
+      nmap <leader>as  <Plug>(coc-codeaction-source)
     '';
     coc = {
       enable = true;
       settings = {
         "eslint.autoFixOnSave" = true;
+        "snippets.textmateSnippetsRoots" = [
+          "/Users/maxhallinan/snippets/"
+        ];
       };
     };
   };
