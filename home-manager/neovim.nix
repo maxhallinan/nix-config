@@ -20,7 +20,7 @@
       typescript-vim
       vim-airline
       vim-airline-themes
-      # vim-bracketed-paste
+      vim-bracketed-paste
       vim-colors-solarized
       vim-commentary
       vim-gitgutter
