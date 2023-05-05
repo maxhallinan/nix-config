@@ -20,6 +20,7 @@
       typescript-vim
       vim-airline
       vim-airline-themes
+      # vim-bracketed-paste
       vim-colors-solarized
       vim-commentary
       vim-gitgutter
@@ -193,20 +194,20 @@
       enable = true;
       settings = {
         "eslint.autoFixOnSave" = true;
-        "languageserver.haskell" = {
-          "codeLens.enable" = true;
-          "diagnostic.checkCurrentLine" = "true";
-          "haskell" = {
-            "args" = ["--lsp" "-l" "hls.log"];
-            "command" = "haskell-language-server-wrapper";
-            "filetypes" = ["haskell" "lhaskell" "hs"];
-            "rootPatterns" = ["*.cabal" "stack.yaml" "cabal.project" "package.yaml" "hie.yaml"];
-            "trace.server" = "verbose";
-            "initializationOptions" = {
-              "languageServerHaskell.maxCompletions" = 10;
-            };
-          };
-        };
+        # "languageserver" = {
+        #   "haskell" = {
+        #     "args" = ["--lsp" "-l" "hls.log"];
+        #     "command" = "haskell-language-server-wrapper";
+        #     "filetypes" = ["haskell" "lhaskell" "hs"];
+        #     "rootPatterns" = ["*.cabal" "stack.yaml" "cabal.project" "package.yaml" "hie.yaml"];
+        #     "trace.server" = "verbose";
+        #     "initializationOptions" = {
+        #       "languageServerHaskell.maxCompletions" = 10;
+        #     };
+        #     "codeLens.enable" = true;
+        #     "diagnostic.checkCurrentLine" = true;
+        #   };
+        # };
         "snippets.textmateSnippetsRoots" = [
           "/Users/maxhallinan/snippets/"
         ];
