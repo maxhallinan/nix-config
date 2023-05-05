@@ -186,16 +186,26 @@
       nmap <leader>as  <Plug>(coc-codeaction-source)
 
       autocmd BufNewFile,BufRead *.code-snippets set filetype=json
+
+      set mouse=""
     '';
     coc = {
       enable = true;
       settings = {
         "eslint.autoFixOnSave" = true;
         "languageserver.haskell" = {
-          "args" = ["--lsp"];
-          "command" = "haskell-language-server-wrapper";
-          "filetypes" = ["haskell" "lhaskell"];
-          "rootPatterns" = ["*.cabal" "stack.yaml" "cabal.project" "package.yaml" "hie.yaml"];
+          "codeLens.enable" = true;
+          "diagnostic.checkCurrentLine" = "true";
+          "haskell" = {
+            "args" = ["--lsp" "-l" "hls.log"];
+            "command" = "haskell-language-server-wrapper";
+            "filetypes" = ["haskell" "lhaskell" "hs"];
+            "rootPatterns" = ["*.cabal" "stack.yaml" "cabal.project" "package.yaml" "hie.yaml"];
+            "trace.server" = "verbose";
+            "initializationOptions" = {
+              "languageServerHaskell.maxCompletions" = 10;
+            };
+          };
         };
         "snippets.textmateSnippetsRoots" = [
           "/Users/maxhallinan/snippets/"
