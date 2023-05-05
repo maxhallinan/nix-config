@@ -184,11 +184,19 @@
       vmap <C-j> <Plug>(coc-snippets-select)
 
       nmap <leader>as  <Plug>(coc-codeaction-source)
+
+      autocmd BufNewFile,BufRead *.code-snippets set filetype=json
     '';
     coc = {
       enable = true;
       settings = {
         "eslint.autoFixOnSave" = true;
+        "languageserver.haskell" = {
+          "args" = ["--lsp"];
+          "command" = "haskell-language-server-wrapper";
+          "filetypes" = ["haskell" "lhaskell"];
+          "rootPatterns" = ["*.cabal" "stack.yaml" "cabal.project" "package.yaml" "hie.yaml"];
+        };
         "snippets.textmateSnippetsRoots" = [
           "/Users/maxhallinan/snippets/"
         ];
