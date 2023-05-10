@@ -187,6 +187,17 @@
 
       nmap <leader>as  <Plug>(coc-codeaction-source)
 
+      " Use K to show documentation in preview window
+      nnoremap <silent> K :call ShowDocumentation()<CR>
+
+      function! ShowDocumentation()
+        if CocAction('hasProvider', 'hover')
+          call CocActionAsync('doHover')
+        else
+          call feedkeys('K', 'in')
+        endif
+      endfunction
+
       autocmd BufNewFile,BufRead *.code-snippets set filetype=json
 
       set mouse=""
