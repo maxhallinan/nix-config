@@ -33,7 +33,8 @@
     };
     shellAliases = {
       gsst = "git-sweep-stage";
-      mwt = "make generate-web-types pathToFrontendRepo=/Users/maxhallinan/Mercury/mercury-web-frontend";
+      mwt = "make generate-web-types pathToFrontendRepo=$MWB_FE";
+      mgt = "make generate-golden-types";
       pgc = "createdb";
       pgd = "dropdb";
       pgi = "psql -d";
