@@ -180,6 +180,7 @@
       nmap <silent> gi <Plug>(coc-implementation)
       nmap <silent> gy <Plug>(coc-type-definition)
       nmap <silent> gr <Plug>(coc-references)
+      nmap <silent> rn <Plug>(coc-rename)
 
       imap <C-l> <Plug>(coc-snippets-expand)
       " Use <C-j> for select text for visual placeholder of snippet.
