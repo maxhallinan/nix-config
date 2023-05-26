@@ -17,6 +17,20 @@
         git stash --keep-index
         git clean --force
       }
+
+      generate-my-web-types() {
+        make generate-web-types pathToFrontendRepo=$MWB_FE
+        golden_files=$(git diff --name-only master.. | rg 'golden/.*')
+        cd $MWB_FE
+        for f in $golden_files
+        do
+          git add ''${f##'golden/generated-types/typescript/'};
+        done
+        git stash --keep-index
+        git clean --force
+        git reset
+        git add -p
+      }
     '';
     oh-my-zsh = {
       enable = true;
@@ -32,8 +46,11 @@
       MWB_FE = "$HOME/Mercury/mercury-web-frontend";
     };
     shellAliases = {
+      gfmom = "gf && gmom";
       gsst = "git-sweep-stage";
+      mb = "make build";
       mwt = "make generate-web-types pathToFrontendRepo=$MWB_FE";
+      mywt = "generate-my-web-types";
       mgt = "make generate-golden-types";
       pgc = "createdb";
       pgd = "dropdb";
