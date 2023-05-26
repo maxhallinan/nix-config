@@ -10,7 +10,7 @@
       set -g default-terminal "screen-256color"
       set-option -g allow-rename off
 
-      # Change to 'C-b'
+      # Change to 'C-a'
       unbind C-b
       set-option -g prefix C-a
       bind-key C-b send-prefix
