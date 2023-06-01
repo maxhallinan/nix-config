@@ -11,6 +11,10 @@
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    yesod-routes-tags = {
+      url = "github:maxhallinan/yesod-routes-tags/34a60e922f74a7bed2277af061f33c59b1c7bdaf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {

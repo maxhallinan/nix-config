@@ -1,5 +1,4 @@
-{ config, pkgs, home-manager, ... }:
-
+{ config, pkgs, home-manager, yesod-routes-tags, specialArgs, system, ... }:
 {
   nix = {
     extraOptions = ''
@@ -27,6 +26,7 @@
     [ pkgs.vim
       pkgs.alacritty
       pkgs.ripgrep
+      yesod-routes-tags.packages.aarch64-darwin.yesod-routes-tags
     ];
 
   # Use a custom configuration.nix location.

@@ -24,12 +24,18 @@
         cd $MWB_FE
         for f in $golden_files
         do
-          git add ''${f##'golden/generated-types/typescript/'};
+          echo "Adding ''${f##'golden/generated-types/typescript/'}";
+          # git add ''${f##'golden/generated-types/typescript/'};
         done
-        git stash --keep-index
-        git clean --force
-        git reset
-        git add -p
+        # git stash --keep-index
+        # git clean --force
+        # git reset
+        # git add -p
+      }
+
+      my-tags() {
+        tags
+        yesod-routes-tags $MWB_BE/config/routes.yesodroutes $MWB_BE/tags
       }
     '';
     oh-my-zsh = {
@@ -49,9 +55,11 @@
       gfmom = "gf && gmom";
       gsst = "git-sweep-stage";
       mb = "make build";
+      mgt = "make generate-golden-types";
+      mhr = "make hlint-refactor";
+      mtg = "my-tags";
       mwt = "make generate-web-types pathToFrontendRepo=$MWB_FE";
       mywt = "generate-my-web-types";
-      mgt = "make generate-golden-types";
       pgc = "createdb";
       pgd = "dropdb";
       pgi = "psql -d";
