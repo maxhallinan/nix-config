@@ -1,4 +1,4 @@
-{ config, pkgs, home-manager, yesod-routes-tags, specialArgs, system, ... }:
+{ config, pkgs, home-manager, yesod-routes-tags, ... }:
 {
   nix = {
     extraOptions = ''

@@ -5,7 +5,9 @@
     casks = [
       "figma"
       "iterm2"
+      "libreoffice"
       "postman"
+      "terminal-notifier"
     ];
     brews = [
       "postgis"

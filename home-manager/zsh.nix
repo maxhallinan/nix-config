@@ -1,6 +1,7 @@
 { pkgs, ... }:
 
 {
+  programs.bash.enable = true;
   programs.zsh = {
     enable = true;
     initExtra = ''
@@ -20,23 +21,30 @@
 
       generate-my-web-types() {
         make generate-web-types pathToFrontendRepo=$MWB_FE
-        golden_files=$(git diff --name-only master.. | rg 'golden/.*')
+        # https://unix.stackexchange.com/a/710369
+        golden_files=(''${(f)"$(git diff --name-only master.. | rg 'golden/.*')"})
         cd $MWB_FE
         for f in $golden_files
         do
-          echo "Adding ''${f##'golden/generated-types/typescript/'}";
-          # git add ''${f##'golden/generated-types/typescript/'};
+          f_trimmed=''${f##'golden/generated-types/typescript/'}
+          echo "Adding $f_trimmed";
+          git add $f_trimmed;
         done
-        # git stash --keep-index
-        # git clean --force
-        # git reset
-        # git add -p
+        git stash --keep-index
+        git clean --force
+        git reset
+        git add -p
       }
 
       my-tags() {
         tags
         yesod-routes-tags $MWB_BE/config/routes.yesodroutes $MWB_BE/tags
       }
+
+      # https://github.com/NixOS/nix/issues/3616
+      if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+        source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+      fi
     '';
     oh-my-zsh = {
       enable = true;
@@ -55,6 +63,8 @@
       gfmom = "gf && gmom";
       gsst = "git-sweep-stage";
       mb = "make build";
+      mr = "make run";
+      mfd = "make fake-data";
       mgt = "make generate-golden-types";
       mhr = "make hlint-refactor";
       mtg = "my-tags";
@@ -65,6 +75,7 @@
       pgi = "psql -d";
       pgmwb = "psql -d $MWB_DB";
       pgr = "recreatedb";
+      pgrmwb = "recreatedb $MWB_DB";
     };
   };
 }
