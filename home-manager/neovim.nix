@@ -202,6 +202,8 @@
       autocmd BufNewFile,BufRead *.code-snippets set filetype=json
 
       set mouse=""
+
+      set noswapfile
     '';
     coc = {
       enable = true;
