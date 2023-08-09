@@ -12,7 +12,7 @@
           IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
       Host mercury-staging
-          HostName 1.mercury-web-backend.staging.internal.mercury.com
+          HostName mercury-web-backend-1.staging-master.internal.mercury.com
 
       Host mercury-staging-prod
           HostName 1.mercury-web-backend.staging-prod.internal.mercury.com
