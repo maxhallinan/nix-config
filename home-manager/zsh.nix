@@ -8,7 +8,11 @@
       eval "$(/opt/homebrew/bin/brew shellenv)"
       export PATH=$N_PREFIX/bin:$PATH
 
-      recreatedb(){
+      run-query() {
+        tsh db connect $1 < $2
+      }
+
+      recreatedb() {
         dropdb $1
         createdb $1
       }
@@ -58,6 +62,7 @@
       MWB_BE = "$HOME/Mercury/mercury-web-backend";
       MWB_DB = "mercury-web-backend-development";
       MWB_FE = "$HOME/Mercury/mercury-web-frontend";
+      MWB_REPLICA_DB = "mercury-web-backend-replica";
     };
     shellAliases = {
       gfmom = "gf && gmom";
@@ -76,6 +81,8 @@
       pgmwb = "psql -d $MWB_DB";
       pgr = "recreatedb";
       pgrmwb = "recreatedb $MWB_DB";
+      pgmwbf = "psql -d $MWB_DB -a -f";
+      rqsp = "run-query $MWB_REPLICA_DB";
     };
   };
 }
