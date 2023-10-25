@@ -155,9 +155,10 @@
       # Elm
       "elm-stuff"
 
-      "nix"
-
       ".s3cfg"
+
+      # mercury-web-backend build directory
+      "d-n"
     ];
   };
 }

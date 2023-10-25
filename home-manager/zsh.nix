@@ -67,7 +67,7 @@
     shellAliases = {
       gfmom = "gf && gmom";
       gsst = "git-sweep-stage";
-      mb = "make build";
+      mb = "make build warn=1";
       mr = "make run";
       mfd = "make fake-data";
       mgt = "make generate-golden-types";
