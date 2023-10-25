@@ -76,6 +76,7 @@
       mtg = "my-tags";
       mwt = "make generate-web-types pathToFrontendRepo=$MWB_FE";
       mywt = "generate-my-web-types";
+      nxd = "nix develop -c $SHELL";
       pgc = "createdb";
       pgd = "dropdb";
       pgi = "psql -d";
