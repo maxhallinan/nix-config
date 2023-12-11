@@ -5,6 +5,15 @@
   programs.zsh = {
     enable = true;
     initExtra = ''
+      autoload -Uz vcs_info
+      zstyle ':vcs_info:*' enable git
+      zstyle ':vcs_info:git*' formats "%b"
+      precmd () { vcs_info }
+      setopt prompt_subst
+      # https://zsh.sourceforge.io/Doc/Release/Prompt-Expansion.html#Prompt-Expansion
+      # https://zsh.sourceforge.io/Doc/Release/User-Contributions.html#Version-Control-Information
+      PROMPT=${"'\${vcs_info_msg_0_} %# '"}
+
       eval "$(/opt/homebrew/bin/brew shellenv)"
       export PATH=$N_PREFIX/bin:$PATH
 
@@ -45,6 +54,10 @@
         yesod-routes-tags $MWB_BE/config/routes.yesodroutes $MWB_BE/tags
       }
 
+      mktouch() {
+        mkdir -p "$(dirname "$1")" && touch "$1"
+      }
+
       # https://github.com/NixOS/nix/issues/3616
       # if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
       #   source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
@@ -72,6 +85,7 @@
       mr = "make run";
       mfd = "make fake-data";
       mgt = "make generate-golden-types";
+      mgw = "make ghciwatch no_load=1";
       mhr = "make hlint-refactor";
       mtg = "my-tags";
       mwt = "make generate-web-types pathToFrontendRepo=$MWB_FE";

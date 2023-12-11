@@ -27,6 +27,7 @@
       vim-javascript
       vim-json
       vim-nix
+      vim-peekaboo
     ];
     extraConfig = ''
       set nocompatible
@@ -110,6 +111,11 @@
       " ...except if we input a capital letter
       set smartcase
 
+      " Synchronize the unnamed register with the system clipboard.
+      " Enables:
+      " - Ctrl-c to clipboard, p in Vim
+      " - y in Vim, Ctrl-p from clipboard
+      " set clipboard=unnamedplus
 
       " Key mappings
       " jj to throw you into normal mode from insert mode
@@ -142,6 +148,10 @@
       " Easier close buffer without closing window
       map <Leader>c :Bclose<CR>
       map <Leader>v :%s/\s\+$//e<CR>
+
+      " Replace the word under the cursor with the last yanked text
+      " https://vim.fandom.com/wiki/Replace_a_word_with_yanked_text#Stamping
+      nnoremap <Leader>S diw"0P
 
       " Plugin config
       let purescript_indent_if = 0

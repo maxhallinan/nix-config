@@ -26,6 +26,7 @@
     [ pkgs.vim
       pkgs.alacritty
       pkgs.ripgrep
+      pkgs.universal-ctags
       yesod-routes-tags.packages.aarch64-darwin.yesod-routes-tags
     ];
 

@@ -159,6 +159,9 @@
 
       # mercury-web-backend build directory
       "d-n"
+
+      # ctags
+      "tags"
     ];
   };
 }
