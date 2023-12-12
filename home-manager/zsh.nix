@@ -5,14 +5,20 @@
   programs.zsh = {
     enable = true;
     initExtra = ''
+      # https://zsh.sourceforge.io/Doc/Release/User-Contributions.html#Version-Control-Information
       autoload -Uz vcs_info
       zstyle ':vcs_info:*' enable git
       zstyle ':vcs_info:git*' formats "%b"
-      precmd () { vcs_info }
+      precmd () {
+        vcs_info
+        # https://zsh.sourceforge.io/Doc/Release/Prompt-Expansion.html#Prompt-Expansion
+        if [[ ! -z "''${vcs_info_msg_0_}" ]]; then
+          PROMPT="''${vcs_info_msg_0_} %# "
+        else
+          PROMPT="%# "
+        fi
+      }
       setopt prompt_subst
-      # https://zsh.sourceforge.io/Doc/Release/Prompt-Expansion.html#Prompt-Expansion
-      # https://zsh.sourceforge.io/Doc/Release/User-Contributions.html#Version-Control-Information
-      PROMPT=${"'\${vcs_info_msg_0_} %# '"}
 
       eval "$(/opt/homebrew/bin/brew shellenv)"
       export PATH=$N_PREFIX/bin:$PATH
