@@ -1,4 +1,4 @@
-{ config, pkgs, home-manager, yesod-routes-tags, ... }:
+{ config, pkgs, home-manager, neovim-helloworld, yesod-routes-tags, ... }:
 {
   nix = {
     extraOptions = ''
@@ -23,11 +23,12 @@
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages =
-    [ pkgs.vim
-      pkgs.alacritty
-      pkgs.ripgrep
+    [ pkgs.ripgrep
+      pkgs.tig
       pkgs.universal-ctags
+      pkgs.vim
       yesod-routes-tags.packages.aarch64-darwin.yesod-routes-tags
+      pkgs.gitAndTools.gh
     ];
 
   # Use a custom configuration.nix location.
@@ -55,7 +56,7 @@
   home-manager = {
     useUserPackages = true;
     verbose = true;
-    users.maxhallinan = import ../home-manager/home.nix;
+    users.maxhallinan = import ../home-manager/home.nix {inherit config pkgs neovim-helloworld; };
   };
 
   # system.activationScripts.preActivation = {
@@ -81,4 +82,6 @@
   #     # fi
   #   '';
   # };
+  nixpkgs.hostPlatform = "aarch64-darwin";
+  # nixpkgs.config.allowUnsupportedSystem = true;
 }

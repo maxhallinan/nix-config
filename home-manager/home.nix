@@ -1,14 +1,12 @@
-{ config, pkgs, inputs, ... }:
+args@{ config, pkgs, neovim-helloworld, ... }:
 
 {
   imports = [
-    ./alacritty.nix
     ./autojump.nix
     ./direnv.nix
     ./git.nix
-    ./neovim.nix
+    (import ./neovim.nix args)
     ./ssh.nix
-    ./starship.nix
     ./tmux.nix
     ./zsh.nix
   ];

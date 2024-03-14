@@ -15,6 +15,10 @@
       url = "github:maxhallinan/yesod-routes-tags/34a60e922f74a7bed2277af061f33c59b1c7bdaf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    neovim-helloworld = {
+      url = "git+ssh://git@github.com/maxhallinan/neovim-helloworld";
+      flake = false;
+    };
   };
 
   outputs = {

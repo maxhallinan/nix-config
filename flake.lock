@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1700795494,
-        "narHash": "sha256-gzGLZSiOhf155FW7262kdHo2YDeugp3VuIFb4/GGng0=",
+        "lastModified": 1708231718,
+        "narHash": "sha256-IZdieFWvhBkxoOFMDejqLUYqD94WN6k0YSpw0DFy+4g=",
         "owner": "lnl7",
         "repo": "nix-darwin",
-        "rev": "4b9b83d5a92e8c1fbfd8eb27eda375908c11ec4d",
+        "rev": "0e6857fa1d632637488666c08e7b02c08e3178f8",
         "type": "github"
       },
       "original": {
@@ -46,11 +46,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1701728041,
-        "narHash": "sha256-x0pyrI1vC8evVDxCxyO6olOyr4wlFg9+VS3C3p4xFYQ=",
+        "lastModified": 1708294481,
+        "narHash": "sha256-DZtxmeb4OR7iCaKUUuq05ADV2rX8WReZEF7Tq//W0+Y=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "ac7216918cd65f3824ba7817dea8f22e61221eaf",
+        "rev": "a54e05bc12d88ff2df941d0dc1183cb5235fa438",
         "type": "github"
       },
       "original": {
@@ -59,13 +59,29 @@
         "type": "github"
       }
     },
+    "neovim-helloworld": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1709435841,
+        "narHash": "sha256-Y24C/PIGX/17KM2taJZjq3iJQp3fMBXV8bWIAvOiDfQ=",
+        "ref": "refs/heads/main",
+        "rev": "0207db5b07e7578b155e148b2eb9c574c39261d6",
+        "revCount": 2,
+        "type": "git",
+        "url": "ssh://git@github.com/maxhallinan/neovim-helloworld"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/maxhallinan/neovim-helloworld"
+      }
+    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1702062687,
-        "narHash": "sha256-GjVETmoqV+nPq6iX95nk8o3FKzVtmVN34438ycLQMQM=",
+        "lastModified": 1708440345,
+        "narHash": "sha256-h16Td76M1H/Qua9n8t0Nb079HM50o5oabDhMWiOh6pQ=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "5a67e3268c84b93fb113a2dc4288b357726d5588",
+        "rev": "65480f71f82bf75a35b3932dd98f34b3901ff8bf",
         "type": "github"
       },
       "original": {
@@ -79,6 +95,7 @@
       "inputs": {
         "darwin": "darwin",
         "home-manager": "home-manager",
+        "neovim-helloworld": "neovim-helloworld",
         "nixpkgs": "nixpkgs",
         "yesod-routes-tags": "yesod-routes-tags"
       }

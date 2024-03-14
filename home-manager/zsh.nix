@@ -5,6 +5,9 @@
   programs.zsh = {
     enable = true;
     initExtra = ''
+      # https://stackoverflow.com/a/72659796/3125444
+      export DISABLE_AUTO_UPDATE="true"
+
       # https://zsh.sourceforge.io/Doc/Release/User-Contributions.html#Version-Control-Information
       autoload -Uz vcs_info
       zstyle ':vcs_info:*' enable git
@@ -72,7 +75,7 @@
     '';
     oh-my-zsh = {
       enable = true;
-      plugins = ["git" "tmux" "z"];
+      plugins = ["git" "tmux"];
     };
     sessionVariables = {
       EDITOR = "nvim";
@@ -80,18 +83,21 @@
       FZF_DEFAULT_COMMAND = "rg --files";
       GREP_OPTIONS = "--ignore-case --line-number --recursive";
       MWB_BE = "$HOME/Mercury/mercury-web-backend";
-      MWB_DB = "mercury-web-backend-development";
+      MWB_DB = "mercury-web-backend-aurora-cluster";
       MWB_FE = "$HOME/Mercury/mercury-web-frontend";
-      MWB_REPLICA_DB = "mercury-web-backend-replica";
+      MWB_REPLICA_DB = "mercury-web-backend-aurora-cluster-reader";
     };
     shellAliases = {
+      cps = "gh copilot suggest";
+      cpe = "gh copilot explain";
       gfmom = "gf && gmom";
       gsst = "git-sweep-stage";
       mb = "make build warn=1";
       mr = "make run";
       mfd = "make fake-data";
+      mgi = "make ghci load_all_modules=1";
       mgt = "make generate-golden-types";
-      mgw = "make ghciwatch no_load=1";
+      mgw = "make ghciwatch";
       mhr = "make hlint-refactor";
       mtg = "my-tags";
       mwt = "make generate-web-types pathToFrontendRepo=$MWB_FE";
@@ -104,7 +110,11 @@
       pgr = "recreatedb";
       pgrmwb = "recreatedb $MWB_DB";
       pgmwbf = "psql -d $MWB_DB -a -f";
+      qc = "pbcopy < ~/scratch.sql";
+      qr = "rqsp ~/scratch.sql";
+      qv = "vi ~/scratch.sql";
       rqsp = "run-query $MWB_REPLICA_DB";
+      ys = "yarn start";
     };
   };
 }

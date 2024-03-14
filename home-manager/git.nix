@@ -162,6 +162,9 @@
 
       # ctags
       "tags"
+
+      # scratch files
+      "src/SCRATCH"
     ];
   };
 }

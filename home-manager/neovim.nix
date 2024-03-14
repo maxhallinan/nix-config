@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, neovim-helloworld, ... }:
 
 {
   programs.neovim = {
@@ -6,29 +6,37 @@
     viAlias = true;
     vimAlias = true;
     withNodeJs = true;
-    plugins = with pkgs.vimPlugins; [
-      bclose-vim
-      coc-eslint
-      coc-nvim
-      coc-snippets
-      coc-tsserver
-      editorconfig-nvim
-      elm-vim
-      fzf-vim
-      psc-ide-vim
-      purescript-vim
-      typescript-vim
-      vim-airline
-      vim-airline-themes
-      vim-bracketed-paste
-      vim-colors-solarized
-      vim-commentary
-      vim-gitgutter
-      vim-javascript
-      vim-json
-      vim-nix
-      vim-peekaboo
-    ];
+    plugins = with pkgs.vimPlugins;
+      let
+        helloworld = pkgs.vimUtils.buildVimPlugin {
+          name = "neovim-helloworld";
+          src = neovim-helloworld;
+        };
+      in [
+          copilot-vim
+          helloworld
+          bclose-vim
+          coc-eslint
+          coc-nvim
+          coc-snippets
+          coc-tsserver
+          editorconfig-nvim
+          elm-vim
+          fzf-vim
+          psc-ide-vim
+          purescript-vim
+          typescript-vim
+          vim-airline
+          vim-airline-themes
+          vim-bracketed-paste
+          vim-colors-solarized
+          vim-commentary
+          vim-gitgutter
+          vim-javascript
+          vim-json
+          vim-nix
+          vim-peekaboo
+        ];
     extraConfig = ''
       set nocompatible
       set encoding=utf-8
@@ -115,7 +123,7 @@
       " Enables:
       " - Ctrl-c to clipboard, p in Vim
       " - y in Vim, Ctrl-p from clipboard
-      " set clipboard=unnamedplus
+      set clipboard=unnamedplus
 
       " Key mappings
       " jj to throw you into normal mode from insert mode
@@ -152,6 +160,8 @@
       " Replace the word under the cursor with the last yanked text
       " https://vim.fandom.com/wiki/Replace_a_word_with_yanked_text#Stamping
       nnoremap <Leader>S diw"0P
+      nnoremap <Leader>p "0p
+      nnoremap <Leader>P "0P
 
       " Plugin config
       let purescript_indent_if = 0
