@@ -35,6 +35,10 @@
         createdb $1
       }
 
+      psql-csv() {
+        psql -d $1 --csv -f $2 -o $3
+      }
+
       # Get rid of all unstaged changes
       git-sweep-stage() {
         git stash --keep-index
@@ -83,7 +87,7 @@
       FZF_DEFAULT_COMMAND = "rg --files";
       GREP_OPTIONS = "--ignore-case --line-number --recursive";
       MWB_BE = "$HOME/Mercury/mercury-web-backend";
-      MWB_DB = "mercury-web-backend-aurora-cluster";
+      MWB_DB = "mercury-web-backend-development";
       MWB_FE = "$HOME/Mercury/mercury-web-frontend";
       MWB_REPLICA_DB = "mercury-web-backend-aurora-cluster-reader";
     };
@@ -110,6 +114,7 @@
       pgr = "recreatedb";
       pgrmwb = "recreatedb $MWB_DB";
       pgmwbf = "psql -d $MWB_DB -a -f";
+      pgmwbcsv = "psql-csv $MWB_DB";
       qc = "pbcopy < ~/scratch.sql";
       qr = "rqsp ~/scratch.sql";
       qv = "vi ~/scratch.sql";
