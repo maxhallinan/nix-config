@@ -26,10 +26,11 @@
           psc-ide-vim
           purescript-vim
           typescript-vim
+          vim-abolish
           vim-airline
           vim-airline-themes
           vim-bracketed-paste
-          vim-colors-solarized
+          vim-solarized8
           vim-commentary
           vim-gitgutter
           vim-javascript
@@ -42,7 +43,7 @@
       set encoding=utf-8
 
       " Syntax highlighting
-      colorscheme solarized
+      colorscheme solarized8
       filetype plugin on
       syntax enable
       set t_Co=256
