@@ -103,6 +103,7 @@
       mgt = "make generate-golden-types";
       mgw = "make ghciwatch";
       mhr = "make hlint-refactor";
+      mtf = "make test match=FoundationalTests";
       mtg = "my-tags";
       mwt = "make generate-web-types pathToFrontendRepo=$MWB_FE";
       mywt = "generate-my-web-types";
